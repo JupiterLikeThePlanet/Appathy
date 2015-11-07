@@ -13,7 +13,8 @@
   "content_scripts": [
     {
       "matches": ["*://*.reddit.com/r/*/comments/*/*/"],
-      // "css": ["mystyles.css"],
+      "css": ["drop_down_box.css"],
+      "html":["drop_down_box.html"],
       // need to tell the manifest that we will be using jquery before we load appathy.js (it matters in HTML as well)
       "js": ["jquery-1.11.3.min.js","appathy.js"]
     }
