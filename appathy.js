@@ -1,37 +1,83 @@
 $(document).ready(function() {
 
-  // $('p').css('color','red') - tests
+  var dropdown = ["<select id='so_what_choice'>",
+                  "<option value='0'>Apathetic</option>",
+                  "<option value='1'>Sardonic</option>",
+                  "<option value='2'>Ironic</option>",
+                  "<option value='3'>Irreverant</option>",
+                  "<option value='4'>Taunt</option>",
+                  "<option value='5'>What the fuck ever</option>",
+                  "</select>"]
 
-  var asciiArt = [];
+var asciiArt = [0,1,2,3,4,'[CeLo](http://imgur.com/DfTBIPl)']
 
-  $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/asciiart/futurama.txt', function(data) {
-     asciiArt.push(data)
+// function
+var getArt1 = function() {
+  $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/apathetic.txt', function(data) {
+    asciiArt[0] = data
     }, 'text');
+}
 
-  $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/asciiart/baby.txt', function(data) {
-     asciiArt.push(data)
+var getArt2 = function(){
+  $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/sardonic.txt', function(data) {
+    asciiArt[1] = data
     }, 'text');
+}
 
-  $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/asciiart/so_what.txt', function(data) {
-     asciiArt.push(data)
+var getArt3 = function(){
+  $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/ironic.txt', function(data) {
+    asciiArt[2] = data
     }, 'text');
-  // ^ load pre-made ascii art unicode text file with jQuery get and place them into an array in variable AsciiArt
+}
+
+var getArt4 = function(){
+  $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/irreverant.txt', function(data) {
+    asciiArt[3] = data
+    }, 'text');
+}
+
+var getArt5 = function(){
+  $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/taunt.txt', function(data) {
+    asciiArt[4] = data
+    }, 'text');
+}
+
+getArt1();
+getArt2();
+getArt3();
+getArt4();
+getArt5();
 
   function getRandom(asciiArt) {
     return asciiArt[Math.floor(Math.random() * asciiArt.length)];
   };
-  // ^ randomly selects an ascii art from asciiArt array
 
-  var our_button = $("<button id='so_what' type='button'>so what</button>");
-  // ^ name a js variable (our_button) and set it equal to inserting an element. (our element type is a button and the name of the button (value) is "so what"). we are inserting an element using jquery syntax
 
-  $('.usertext-buttons').append(our_button);
-  // ^ appends (aka adds) our "so what" button next to the save button
-  // did not append to $('.save') because that put our_button inside the save button when what we wanted was to put our_button inside the container "usertext-buttons" in order to put our_button next to the save button
+  // Whatever button >> generates random photo
+  var whatever = $("<button id='whatever' type='button'>whatever</button>");
+  $('.usertext-buttons').append(whatever);
 
-  $('#so_what').on('click',function(){
+  $('#whatever').on('click',function(){
     $('.md textarea').val(getRandom(asciiArt));
   });
-  // ^ on "So What" button click, pastes the ascii art to the text field
+
+
+  // So What button >> generates a photo based on the user's choice from the list
+  var so_what = $("<button id='so_what' type='button'>so what</button>");
+  $('.usertext-buttons').append(so_what);
+
+  $('body').on('click','#so_what',function(){
+    $('#so_what').hide();
+    $('.usertext-buttons').append(dropdown.join(''));
+    var selected = parseInt($('#so_what_choice').find('option:selected').val());
+    $('.md textarea').val(asciiArt[selected]);
+  });
+
+  $('body').on('change','#so_what_choice',function(){
+      // var selected =
+      var selected = parseInt($('#so_what_choice').find('option:selected').val());
+      console.log(asciiArt[selected]);
+      $('.md textarea').val(asciiArt[selected]);
+  });
 
 });
