@@ -9,30 +9,44 @@ $(document).ready(function() {
                   "<option value='5'>What the fuck ever</option>",
                   "</select>"]
 
-  var asciiArt = [];
+var asciiArt = [0,1,2,3,4,'[CeLo](http://imgur.com/DfTBIPl)']
 
+// function
+var getArt1 = function() {
   $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/apathetic.txt', function(data) {
-    asciiArt.push(data)
+    asciiArt[0] = data
     }, 'text');
+}
 
+var getArt2 = function(){
   $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/sardonic.txt', function(data) {
-     asciiArt.push(data)
+    asciiArt[1] = data
     }, 'text');
+}
 
-
+var getArt3 = function(){
   $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/ironic.txt', function(data) {
-   asciiArt.push(data)
-  }, 'text');
+    asciiArt[2] = data
+    }, 'text');
+}
 
+var getArt4 = function(){
   $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/irreverant.txt', function(data) {
-     asciiArt.push(data)
+    asciiArt[3] = data
     }, 'text');
+}
 
+var getArt5 = function(){
   $.get('https://raw.githubusercontent.com/JupiterLikeThePlanet/Appathy/initial/taunt.txt', function(data) {
-     asciiArt.push(data)
+    asciiArt[4] = data
     }, 'text');
+}
 
-  // asciiArt[5] = 'http://imgur.com/DfTBIPl'
+getArt1();
+getArt2();
+getArt3();
+getArt4();
+getArt5();
 
   function getRandom(asciiArt) {
     return asciiArt[Math.floor(Math.random() * asciiArt.length)];
@@ -62,6 +76,7 @@ $(document).ready(function() {
   $('body').on('change','#so_what_choice',function(){
       // var selected =
       var selected = parseInt($('#so_what_choice').find('option:selected').val());
+      console.log(asciiArt[selected]);
       $('.md textarea').val(asciiArt[selected]);
   });
 
