@@ -3,12 +3,14 @@ $(document).ready(function() {
 
   // $('p').css('color','red')
 
-  var asciiArt = ["┌∩┐(◣_◢)┌∩┐", "¯\_(ツ)_/¯", "╭∩╮（︶︿︶）╭∩╮", "ᶠᶸᶜᵏ♥ᵧₒᵤ", "┌ಠ_ಠ)┌∩┐ ᶠᶸᶜᵏ♥ᵧₒᵤ", "( ͠° ͟ʖ ͡°)﻿", "(ಠ_ಠ)┌∩┐", "┌∩┐(‿|‿)┌∩┐", "╭∩╮╭∩╮", "╭∩╮ (òÓ,) ╭∩╮", "┌∩┐(◟‿◞◟‿◞)┌∩┐", "┌∩┐(^_~)┌∩┐"];
+  var asciiArt = ["┌∩┐(◣_◢)┌∩┐", "¯\_(ツ)_/¯", "╭∩╮（︶︿︶）╭∩╮", "ᶠᶸᶜᵏ♥ᵧₒᵤ", "┌ಠ_ಠ)┌∩┐ ᶠᶸᶜᵏ♥ᵧₒᵤ", "( ͠° ͟ʖ ͡°)﻿", "(ಠ_ಠ)┌∩┐", "┌∩┐(‿|‿)┌∩┐", "╭∩╮╭∩╮", "╭∩╮ (òÓ,) ╭∩╮", "┌∩┐(◟‿◞◟‿◞)┌∩┐", "┌∩┐(^_~)┌∩┐", ""];
+
   function getRandom(asciiArt) {
     return asciiArt[Math.floor(Math.random() * asciiArt.length)];
-  }
+  };
 
   var our_button = $("<button id='so_what' type='button'>So What</button>");
+
   // ^ name a js variable (our_button) and set it equal to inserting an element. (our element type is a button and the name of the button (value) is "so what"). we are inserting an element using jquery syntax
 
   $('.usertext-buttons').append(our_button);
@@ -18,7 +20,6 @@ $(document).ready(function() {
 
   $('#so_what').on('click',function(){
     $('.md textarea').val(getRandom(asciiArt));
-
-  })
+  });
 
 });
