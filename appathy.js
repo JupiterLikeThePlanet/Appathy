@@ -9,9 +9,9 @@ $(document).ready(function() {
                   "<option value='5'>What the fuck ever</option>",
                   "</select>"]
 
-var whateverArt = ['┌∩┐(◣_◢)┌∩┐','(╯°□°）╯︵ ┻━┻','( ͡° ͜ʖ ͡°)','¯\_(ツ)_/¯','╭∩╮（︶︿︶）╭∩╮', 'ᶠᶸᶜᵏ♥ᵧₒᵤ', '¸.·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º>', 'ლ(ಠ益ಠ)ლ' ]
+var whateverArt = ['┌∩┐(◣_◢)┌∩┐','(╯°□°）╯︵ ┻━┻','( ͡° ͜ʖ ͡°)','¯\_(ツ)_/¯','╭∩╮（︶︿︶）╭∩╮', 'ᶠᶸᶜᵏ♥ᵧₒᵤ', '┻━┻︵ \(°□°)/ ︵ ┻━┻', 'ლ(ಠ益ಠ)ლ' ]
 
-var asciiArt = [0,1,2,3,4,'[CeLo](http://imgur.com/DfTBIPl)']
+var asciiArt = [0,1,2,3,4,'[CeLo](http://imgur.com/9576Bxn)']
 
 // function
 var getArt1 = function() {
