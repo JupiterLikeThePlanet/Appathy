@@ -1,7 +1,7 @@
 # Appathy
 
 ## Summary
-A google chrome extension that add apathetic ascii art comments to reddit.
+A google chrome extension that adds apathetic ascii art comments to reddit.
 
 ## Where to get Appathy
 Appathy is available on the Google Chrome Store at [this](https://chrome.google.com/webstore/search/appathy?hl=en-US) link.
