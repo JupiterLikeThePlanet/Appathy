@@ -1,4 +1,4 @@
-### Appathy
+# Appathy
 
 ## Summary
 A google chrome extension that add apathetic ascii art comments to reddit.
